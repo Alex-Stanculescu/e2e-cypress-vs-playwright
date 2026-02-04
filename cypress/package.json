@@ -1,0 +1,13 @@
+{
+  "name": "cypress-suite",
+  "private": true,
+  "devDependencies": {
+    "cypress": "^13.0.0",
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "test": "cypress run",
+    "test:headed": "cypress run --headed",
+    "open": "cypress open"
+  }
+}

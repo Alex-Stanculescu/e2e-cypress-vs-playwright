@@ -1,0 +1,10 @@
+{
+  "name": "e2e-cypress-vs-playwright",
+  "private": true,
+  "workspaces": ["cypress", "playwright"],
+  "scripts": {
+    "test:cypress": "npm --workspace cypress run test",
+    "test:playwright": "npm --workspace playwright run test",
+    "test:all": "npm run test:cypress && npm run test:playwright"
+  }
+}

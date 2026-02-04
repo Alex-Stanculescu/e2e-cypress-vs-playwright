@@ -1,0 +1,11 @@
+﻿node_modules
+dist
+.DS_Store
+
+# Cypress
+cypress/cypress/videos
+cypress/cypress/screenshots
+
+# Playwright
+playwright/playwright-report
+playwright/test-results
