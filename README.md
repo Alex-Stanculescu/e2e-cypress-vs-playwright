@@ -1,4 +1,6 @@
 # e2e-cypress-vs-playwright
+![E2E (Cypress + Playwright)](https://github.com/Alex-Stanculescu/e2e-cypress-vs-playwright/actions/workflows/e2e.yml/badge.svg)
+
 
 A small portfolio project that implements the **same end-to-end scenarios** in **Cypress** and **Playwright**, with **GitHub Actions CI** and test artifacts (videos / reports) to compare tooling and demonstrate automation skills.
 
