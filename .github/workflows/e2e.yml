@@ -1,0 +1,56 @@
+﻿name: E2E (Cypress + Playwright)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [cypress, playwright]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        if: matrix.suite == 'playwright'
+        run: npx --workspace playwright playwright install --with-deps
+
+      - name: Run Cypress
+        if: matrix.suite == 'cypress'
+        run: npm run test:cypress
+
+      - name: Run Playwright
+        if: matrix.suite == 'playwright'
+        run: npm run test:playwright
+
+      - name: Upload Cypress artifacts
+        if: matrix.suite == 'cypress'
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/cypress/videos
+            cypress/cypress/screenshots
+          if-no-files-found: ignore
+
+      - name: Upload Playwright report
+        if: matrix.suite == 'playwright'
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright/playwright-report
+          if-no-files-found: ignore
