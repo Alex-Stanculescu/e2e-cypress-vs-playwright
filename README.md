@@ -9,10 +9,10 @@ A small portfolio project that implements the **same end-to-end scenarios** in *
 - **Purchase flow**: add item to cart and complete checkout
 
 More details:  
-- `docs/scenarios.md`
+- [docs/scenarios.md](docs/scenarios.md)
 
 ### Tool comparison notes
-- `docs/tooling-decision-notes.md`
+- [docs/tooling-decision-notes.md](docs/tooling-decision-notes.md)
 
 ## Project structure
 
