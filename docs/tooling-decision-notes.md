@@ -34,3 +34,13 @@ Choose based on:
 - Network interception/mocking strategy
 - Cross-browser matrix
 - Reporting standardization and trend tracking
+
+## Auth reuse (Playwright storageState)
+To speed up the suite and reduce repeated login steps, the project uses a dedicated Playwright setup test (auth.setup.ts) that logs in once and saves the browser context storageState (cookies + storage) to playwright/.auth/standard.json.
+
+The E2E project loads this storageState for each new browser context, so tests can start from authenticated pages (e.g., /inventory.html) without re-running the login flow.
+
+When I would NOT use this:
+- When explicitly testing authentication flows (login, logout, MFA)
+- When tokens expire extremely quickly or the app invalidates sessions aggressively
+- When tests require multiple roles/users (in that case, use multiple stored states per role)
