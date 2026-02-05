@@ -9,3 +9,5 @@ cypress/cypress/screenshots
 # Playwright
 playwright/playwright-report
 playwright/test-results
+
+playwright/.auth
